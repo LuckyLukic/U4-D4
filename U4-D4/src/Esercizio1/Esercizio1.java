@@ -7,12 +7,24 @@ public class Esercizio1 {
 		Dipendente giacomo = new Dipendente(46789, Dipartimento.PRODUZIONE);
         giacomo.stampaDatiDipendente();
         
+		System.out.println("---------------------------");
+        
         
         Dipendente giovanni = new Dipendente(55113, Dipartimento.VENDITE, 1000, 1400, 30, Livello.IMPIEGATO);
-        giovanni.calcolaPaga();		
+		giovanni.promuovi();
+
+		System.out.println("---------------------------");
+
+		System.out.println(Dipendente.calcolaPaga(giovanni));
+
+		System.out.println("---------------------------");
+
+		System.out.println(Dipendente.calcolaPaga(giovanni, 9));
+
 	}
 
 	
+
 	   
 }
 
@@ -21,12 +33,3 @@ public class Esercizio1 {
 
 
 
-
-
-
-this.matricola =_matricola;
-this.dipartimento =_dipartimento;
-this.stipendioBase = _stipendioBase;
-this.stipendio = _stipendio;
-this.importoOrarioStraordinario = _importoOrarioStraordinario;
-this.livello = _livello;

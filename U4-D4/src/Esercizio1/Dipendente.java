@@ -40,25 +40,31 @@ public class Dipendente {
 	 
  }
  
- public void promuovi (Dipendente dipendente) {
+	@Override
+	public String toString() {
+		return "Dipendente{" + "matricola=" + matricola + ", stipendio=" + stipendio + ", importoOrarioStraordinario="
+				+ importoOrarioStraordinario + ", livello=" + livello + ", dipartimento=" + dipartimento + '}';
+	}
+
+	public void promuovi() {
 	 
 	 switch (livello) {
 	 case OPERAIO: 
-		 dipendente.setLivello(livello.IMPIEGATO);
-		 dipendente.setStipendio(stipendio * 1.2);
-	     System.out.println(dipendente);
+			setLivello(livello.IMPIEGATO);
+			setStipendio(stipendio * 1.2);
+			System.out.println(this);
 	     break;
 	     
 	 case IMPIEGATO:
-		 dipendente.setLivello(livello.QUADRO);
-		 dipendente.setStipendio(stipendio * 1.5);
-	     System.out.println(dipendente);
+			setLivello(livello.QUADRO);
+			setStipendio(stipendio * 1.5);
+			System.out.println(this);
 	     break;
 	     
 	 case QUADRO:
-		 dipendente.setLivello(livello.DIRIGENTE);
-		 dipendente.setStipendio(stipendio * 2);
-	     System.out.println(dipendente);
+			setLivello(livello.DIRIGENTE);
+			setStipendio(stipendio * 2);
+			System.out.println(this);
 	     break;
 	     
 	 case DIRIGENTE:
@@ -74,51 +80,59 @@ public class Dipendente {
 	 
  }
  
- public static void calcolaPaga (Dipendente dipendente) {
+	public static double calcolaPaga(Dipendente dipendente) {
 	 
-	 double stipendio = dipendente.getStipendio();
-	 System.out.println(stipendio);
+		return dipendente.getStipendio();
  }
+
+	public static double calcolaPaga(Dipendente dipendente, int oreStraordinario) {
+		double stipendio = dipendente.getStipendio();
+		double importoOrarioStraordinario = dipendente.getImportoOrarioStraordinario();
+		double stipendioComprensivoStraordinario = stipendio + (oreStraordinario * importoOrarioStraordinario);
+		return stipendioComprensivoStraordinario;
+	}
+
+
  
-public int getMatricola() {
-	return matricola;
-}
+	public int getMatricola() {
+		return matricola;
+	}
 
-public void setMatricola(int matricola) {
-	this.matricola = matricola;
-}
+	public void setMatricola(int matricola) {
+		this.matricola = matricola;
+	}
 
-public double getStipendio() {
-	return stipendio;
-}
+	public double getStipendio() {
+		return stipendio;
+	}
 
-public void setStipendio(double stipendio) {
-	this.stipendio = stipendio;
-}
+	public void setStipendio(double stipendio) {
+		this.stipendio = stipendio;
+	}
 
-public double getImportoOrarioStraordinario() {
-	return importoOrarioStraordinario;
-}
+	public double getImportoOrarioStraordinario() {
+		return importoOrarioStraordinario;
+	}
 
-public void setImportoOrarioStraordinario(double importoOrarioStraordinario) {
-	this.importoOrarioStraordinario = importoOrarioStraordinario;
-}
+	public void setImportoOrarioStraordinario(double importoOrarioStraordinario) {
+		this.importoOrarioStraordinario = importoOrarioStraordinario;
+	}
 
-public Livello getLivello() {
-	return livello;
-}
+	public Livello getLivello() {
+		return livello;
+	}
 
-public void setLivello(Livello livello) {
-	this.livello = livello;
-}
+	public void setLivello(Livello livello) {
+		this.livello = livello;
+	}
 
-public Dipartimento getDipartimento() {
-	return dipartimento;
-}
+	public Dipartimento getDipartimento() {
+		return dipartimento;
+	}
 
-public void setDipartimento(Dipartimento dipartimento) {
-	this.dipartimento = dipartimento;
-}
+	public void setDipartimento(Dipartimento dipartimento) {
+		this.dipartimento = dipartimento;
+	}
  
 
 
